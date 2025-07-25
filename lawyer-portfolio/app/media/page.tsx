@@ -18,8 +18,8 @@ export default function MediaPage() {
       try {
         const url =
           selectedCategory === "All"
-            ? `${process.env.NEXT_PUBLIC_API_URL}/media/`
-            : `${process.env.NEXT_PUBLIC_API_URL}/media/?category=${selectedCategory}`
+            ? `${process.env.NEXT_PUBLIC_API_URL}/api/media/`
+            : `${process.env.NEXT_PUBLIC_API_URL}/api/media/?category=${selectedCategory}`
 
         const response = await fetch(url)
         if (!response.ok) {
