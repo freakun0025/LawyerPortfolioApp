@@ -74,12 +74,15 @@ export default function MediaPage() {
               <Card key={item.id} className="overflow-hidden group">
                 <div className="aspect-[4/3] relative">
                   <Image
-                    src={item.imageUrl || "/placeholder.svg"}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    onClick={() => setSelectedImage(item)}
-                  />
+  // Replace this:
+  // src={item.imageUrl || "/placeholder.svg"}
+  // With this:
+  src={item.imageUrl ? `${process.env.NEXT_PUBLIC_API_URL}${item.imageUrl}` : "/placeholder.svg"}
+  alt={item.title}
+  fill
+  className="object-cover group-hover:scale-105 transition-transform duration-300"
+  onClick={() => setSelectedImage(item)}
+/>
                 </div>
                 <CardContent className="p-4">
                   <div className="flex justify-between items-start mb-2">
@@ -117,11 +120,14 @@ export default function MediaPage() {
               </button>
               <div className="aspect-[16/9] relative">
                 <Image
-                  src={selectedImage.imageUrl || "/placeholder.svg"}
-                  alt={selectedImage.title}
-                  fill
-                  className="object-cover rounded-t-lg"
-                />
+  // Replace this:
+  // src={selectedImage.imageUrl || "/placeholder.svg"}
+  // With this:
+  src={selectedImage.imageUrl ? `${process.env.NEXT_PUBLIC_API_URL}${selectedImage.imageUrl}` : "/placeholder.svg"}
+  alt={selectedImage.title}
+  fill
+  className="object-cover rounded-t-lg"
+/>
               </div>
             </div>
             <div className="p-8">
