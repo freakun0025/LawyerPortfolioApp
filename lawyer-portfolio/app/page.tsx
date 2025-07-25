@@ -20,7 +20,8 @@ export default function HomePage() {
     // Fetch testimonials
     async function fetchTestimonials() {
       try {
-        const response = await fetch('http://localhost:8000/api/testimonials/')
+        // Replace hardcoded localhost URL with environment variable
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/testimonials/`)
         if (response.ok) {
           const data = await response.json()
           setTestimonials(data.slice(0, 2)) // Get only 2 testimonials for preview
@@ -35,7 +36,8 @@ export default function HomePage() {
     // Fetch media items
     async function fetchMediaItems() {
       try {
-        const response = await fetch('http://localhost:8000/api/media/')
+        // Replace hardcoded localhost URL with environment variable
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/media/`)
         if (response.ok) {
           const data = await response.json()
           setMediaItems(data.slice(0, 3)) // Get only 3 media items for preview
