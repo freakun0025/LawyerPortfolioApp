@@ -188,11 +188,14 @@ export default function HomePage() {
                     <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                       <div className="relative aspect-[4/3]">
                         <Image
-                          src={item.imageUrl || "/placeholder.svg?height=300&width=400"}
-                          alt={item.title}
-                          fill
-                          className="object-cover"
-                        />
+  // Replace this:
+  // src={item.imageUrl || "/placeholder.svg?height=300&width=400"}
+  // With this:
+  src={item.imageUrl ? `${process.env.NEXT_PUBLIC_API_URL}${item.imageUrl}` : "/placeholder.svg?height=300&width=400"}
+  alt={item.title}
+  fill
+  className="object-cover"
+/>
                       </div>
                       <CardContent className="p-4">
                         <h3 className="font-semibold mb-2">{item.title}</h3>
