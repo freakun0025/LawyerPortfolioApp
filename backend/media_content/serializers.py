@@ -12,5 +12,5 @@ class MediaItemSerializer(serializers.ModelSerializer):
     
     def get_imageUrl(self, obj):
         if obj.image:
-            return f"http://localhost:8000{obj.image.url}"
+            return obj.image.url
         return None
